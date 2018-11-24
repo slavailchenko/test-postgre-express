@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   rateclient.associate = function(models) {
 
     rateclient.hasMany(models.clients, {
-      foreignKey: 'idrate',
+      foreignKey: 'id_rate',
       as: 'clients',
     });
   

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('subcategory', {
+    return queryInterface.createTable('subcategories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,10 +18,18 @@ module.exports = {
       },
       descriptionsubcategory: {
         type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('subcategory');
+    return queryInterface.dropTable('subcategories');
   }
 };

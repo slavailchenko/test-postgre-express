@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('category', {
+    return queryInterface.createTable('categories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,10 +14,18 @@ module.exports = {
       },
       descriptioncategory: {
         type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('category');
+    return queryInterface.dropTable('categories');
   }
 };

@@ -20,23 +20,23 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     orders.belongsTo(models.clients, {
-      foreignKey: 'clientid',
+      foreignKey: 'client_id',
       as: 'clients'
     });
 
     orders.belongsTo(models.statusorder, {
       foreignKey: 'idstatus',
-      as: 'statusorder'
+      as: 'statusorders'
     });
 
     orders.belongsTo(models.payment, {
       foreignKey: 'idpayment',
-      as: 'payment'
+      as: 'payments'
     });
 
     orders.belongsTo(models.delivery, {
       foreignKey: 'iddelivery',
-      as: 'delivery'
+      as: 'deliveries'
     });
 
   };

@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 
     condition.hasMany(models.products, {
       foreignKey: 'conditionid',
-      as: 'condition',
+      as: 'conditions',
     });
   };
   return condition;

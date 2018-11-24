@@ -4,11 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     namecategory: DataTypes.STRING,
     descriptioncategory: DataTypes.STRING
   }, {});
+  
   category.associate = function(models) {
 
     category.hasMany(models.subcategory, {
       foreignKey: 'idcategory',
-      as: 'subcategory',
+      as: 'subcategories',
     });
   };
   return category;

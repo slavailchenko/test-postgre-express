@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstname: {
+      first_name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      lastname: {
+      last_name: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -27,20 +27,43 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      idrate: {
+      id_rate: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // onDelete: 'CASCADE',
+        // references: {
+        //   model: 'rateclients',
+        //   key: 'id',
+        //   as: 'idrate',
+        // },
       },
-      idregistration: {
+      id_registration: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // onDelete: 'CASCADE',
+        // references: {
+        //   model: 'registrationclients',
+        //   key: 'id',
+        //   as: 'idregistration',
+        // },
       },
-      dateregastration: {
+      date_regastration: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY,
+        defaultValue: Sequelize.NOW
       },
-      expdateregastration: {
-        type: Sequelize.DATE
+      exp_date_regastration: {
+        type: Sequelize.DATEONLY
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: DataTypes.NOW
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: DataTypes.NOW
       }
     });
   },

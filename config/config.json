@@ -5,6 +5,10 @@
     "database": "shop",
     "host": "127.0.0.1",
     "port": 5432,
+    "port_server": 8001,
+    "logging": false,
+    "freezeTableName": true,
+    "operatorsAliases": false,
     "dialect": "postgres"
   },
   "test": {

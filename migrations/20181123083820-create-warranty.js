@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('warranty', {
+    return queryInterface.createTable('warranties', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,10 +11,18 @@ module.exports = {
       days: {
         allowNull: false,
         type: Sequelize.INTEGER
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('warranty');
+    return queryInterface.dropTable('warranties');
   }
 };

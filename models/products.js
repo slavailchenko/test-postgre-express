@@ -28,32 +28,32 @@ module.exports = (sequelize, DataTypes) => {
 
     products.belongsTo(models.subcategory, {
       foreignKey: 'subcategoryid',
-      as: 'subcategory'
+      as: 'subcategories'
     });
 
     products.belongsTo(models.brand, {
       foreignKey: 'brandid',
-      as: 'brand'
+      as: 'brands'
     });
 
     products.belongsTo(models.availability, {
       foreignKey: 'availabilityid',
-      as: 'availability'
+      as: 'availabilities'
     });
 
     products.belongsTo(models.warranty, {
       foreignKey: 'warrantyid',
-      as: 'warranty'
+      as: 'warranties'
     });
 
     products.belongsTo(models.condition, {
       foreignKey: 'conditionid',
-      as: 'condition'
+      as: 'conditions'
     });
 
     products.belongsTo(models.supplier, {
       foreignKey: 'supplierid',
-      as: 'supplier'
+      as: 'suppliers'
     });
 
   };

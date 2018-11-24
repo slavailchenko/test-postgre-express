@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      clientid: {
+      client_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -23,6 +23,14 @@ module.exports = {
       iddelivery: {
         allowNull: false,
         type: Sequelize.INTEGER
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       }
     });
   },

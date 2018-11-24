@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 
   registrationclient.associate = function(models) {
   	registrationclient.hasMany(models.clients, {
-      foreignKey: 'idregistration',
+      foreignKey: 'id_registration',
       as: 'clients',
     });
   };
