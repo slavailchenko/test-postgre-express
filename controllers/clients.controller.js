@@ -2,8 +2,7 @@ const ServerError = require('../lib/errors');
 const clients = require('../models').clients;
 const registrationclient = require('../models').registrationclient;
 const rateclient = require('../models').rateclient;
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+const Op = require('sequelize').Op;
 
 // See dml_example.md
 
