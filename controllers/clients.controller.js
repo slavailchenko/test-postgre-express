@@ -2,13 +2,19 @@ const ServerError = require('../lib/errors');
 const clients = require('../models').clients;
 const registrationclient = require('../models').registrationclient;
 const rateclient = require('../models').rateclient;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // See dml_example.md
 
 module.exports = {
 
   list (req, res, next) {
+    let query = {};
+    query.email = req.query.email || '';
+    query.last_name = req.query.last_name || '';
   	return clients.findAll({
+        attributes: ['id', 'first_name', 'last_name', 'phone', 'email', 'adress', 'date_regastration', 'exp_date_regastration'],
         include: [{
           model: registrationclient,
           as: 'registrationclients'
@@ -16,6 +22,11 @@ module.exports = {
           model: rateclient,
           as: 'rateclients'
         }],
+        where: {
+          [Op.and]: [
+          {email: { [Op.iLike]: `%${query.email}%`}},
+          {last_name: { [Op.iLike]: `%${query.last_name}%`}},
+        ]},
         order: [
           ['id', 'ASC'],
           ['date_regastration', 'DESC'],
@@ -47,9 +58,8 @@ module.exports = {
   },
 
   add(req, res, next) {
-  	console.log(req.body);
     return clients.create({
-    	first_name: req.body.first_name,
+        first_name: req.body.first_name,
       	last_name: req.body.last_name,
       	phone: req.body.phone,
       	email: req.body.email,

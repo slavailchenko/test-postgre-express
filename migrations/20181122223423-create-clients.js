@@ -25,27 +25,21 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+          isEmail: true,
+          msg: 'E-mail must be correct'
+        }
       },
       id_rate: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        // onDelete: 'CASCADE',
-        // references: {
-        //   model: 'rateclients',
-        //   key: 'id',
-        //   as: 'idrate',
-        // },
+        onDelete: 'CASCADE'
       },
       id_registration: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        // onDelete: 'CASCADE',
-        // references: {
-        //   model: 'registrationclients',
-        //   key: 'id',
-        //   as: 'idregistration',
-        // },
+        onDelete: 'CASCADE'
       },
       date_regastration: {
         allowNull: false,
@@ -65,9 +59,11 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: DataTypes.NOW
       }
-    });
+    }).then (() => 
+    queryInterface.addIndex('clients', {fields: ['email'], using:'gin', operator:'text_ops'}));
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('clients');
+    return queryInterface.dropTable('clients').then(() => 
+      queryInterface.removeIndex('clients', 'email'));
   }
 };

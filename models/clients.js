@@ -10,7 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     id_registration: DataTypes.INTEGER,
     date_regastration: DataTypes.DATEONLY,
     exp_date_regastration: DataTypes.DATEONLY
-  }, {});
+  }, {
+    indexes: [{
+      type: 'STRING',
+      name: 'clients_email_idx',
+      fields: ['last_name', 'email']
+    }]
+  });
 
   clients.associate = function(models) {
 
