@@ -1,58 +1,64 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const products = sequelize.define('products', {
-    subcategoryid: DataTypes.INTEGER,
-    brandid: DataTypes.INTEGER,
+    sub_category_id: DataTypes.INTEGER,
+    brand_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     article: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.DOUBLE,
-    availabilityid: DataTypes.INTEGER,
-    warrantyid: DataTypes.INTEGER,
-    conditionid: DataTypes.INTEGER,
-    supplierid: DataTypes.INTEGER,
+    availability_id: DataTypes.INTEGER,
+    warranty_id: DataTypes.INTEGER,
+    condition_id: DataTypes.INTEGER,
+    supplier_id: DataTypes.INTEGER,
     url: DataTypes.STRING
-  }, {});
+  }, {
+    indexes: [{
+      type: 'STRING',
+      name: 'products_title_idx',
+      fields: ['title', 'article']
+    }]
+  });
 
   products.associate = function(models) {
 
     products.hasMany(models.order_products, {
-      foreignKey: 'productid',
+      foreignKey: 'product_id',
       as: 'order_products',
     });
 
     products.hasMany(models.reviews, {
-      foreignKey: 'idproduct',
+      foreignKey: 'id_product',
       as: 'reviews',
     });
 
     products.belongsTo(models.subcategory, {
-      foreignKey: 'subcategoryid',
+      foreignKey: 'sub_category_id',
       as: 'subcategories'
     });
 
     products.belongsTo(models.brand, {
-      foreignKey: 'brandid',
+      foreignKey: 'brand_id',
       as: 'brands'
     });
 
     products.belongsTo(models.availability, {
-      foreignKey: 'availabilityid',
+      foreignKey: 'availability_id',
       as: 'availabilities'
     });
 
     products.belongsTo(models.warranty, {
-      foreignKey: 'warrantyid',
+      foreignKey: 'warranty_id',
       as: 'warranties'
     });
 
     products.belongsTo(models.condition, {
-      foreignKey: 'conditionid',
+      foreignKey: 'condition_id',
       as: 'conditions'
     });
 
     products.belongsTo(models.supplier, {
-      foreignKey: 'supplierid',
+      foreignKey: 'supplier_id',
       as: 'suppliers'
     });
 

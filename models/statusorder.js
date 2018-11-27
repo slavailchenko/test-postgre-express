@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const statusorder = sequelize.define('statusorder', {
-    isfulfilled: DataTypes.BOOLEAN
+    is_fulfilled: DataTypes.BOOLEAN
   }, {});
 
   statusorder.associate = function(models) {
 
   	statusorder.hasMany(models.orders, {
-  		foreignKey: 'idstatus',
+  		foreignKey: 'id_status',
   		as: 'orders',
   	});
 

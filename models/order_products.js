@@ -1,19 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const order_products = sequelize.define('order_products', {
-    orderid: DataTypes.INTEGER,
-    productid: DataTypes.INTEGER
+    order_id: DataTypes.INTEGER,
+    product_id: DataTypes.INTEGER
   }, {});
 
   order_products.associate = function(models) {
 
     order_products.belongsTo(models.orders, {
-      foreignKey: 'orderid',
+      foreignKey: 'order_id',
       as: 'orders'
     });
 
     order_products.belongsTo(models.products, {
-      foreignKey: 'productid',
+      foreignKey: 'product_id',
       as: 'products'
     });
   };

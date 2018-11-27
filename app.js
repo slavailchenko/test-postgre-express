@@ -5,6 +5,7 @@ const config = require('./config/config.json')[env];
 const log = require('./services/log.service');
 const ServerError = require('./lib/errors');
 const clientsRouter = require('./routes/clients.route');
+const productsRouter = require('./routes/products.route');
 
 const app = express ();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
 app.use(bodyParser.json());
 
 app.use('/clients', clientsRouter);
+app.use('/products', productsRouter);
 
 app.use(ServerError.handle404Error);
 app.use(ServerError.errorLogger);

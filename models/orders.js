@@ -1,21 +1,21 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const orders = sequelize.define('orders', {
-    clientid: DataTypes.INTEGER,
-    idstatus: DataTypes.INTEGER,
-    idpayment: DataTypes.INTEGER,
-    iddelivery: DataTypes.INTEGER
+    client_id: DataTypes.INTEGER,
+    id_status: DataTypes.INTEGER,
+    id_payment: DataTypes.INTEGER,
+    id_delivery: DataTypes.INTEGER
   }, {});
   
   orders.associate = function(models) {
 
     orders.hasMany(models.order_products, {
-      foreignKey: 'orderid',
+      foreignKey: 'order_id',
       as: 'order_products',
     });
 
     orders.hasMany(models.reviews, {
-      foreignKey: 'idorder',
+      foreignKey: 'id_order',
       as: 'reviews',
     });
 
@@ -25,17 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     orders.belongsTo(models.statusorder, {
-      foreignKey: 'idstatus',
+      foreignKey: 'id_status',
       as: 'statusorders'
     });
 
     orders.belongsTo(models.payment, {
-      foreignKey: 'idpayment',
+      foreignKey: 'id_payment',
       as: 'payments'
     });
 
     orders.belongsTo(models.delivery, {
-      foreignKey: 'iddelivery',
+      foreignKey: 'id_delivery',
       as: 'deliveries'
     });
 

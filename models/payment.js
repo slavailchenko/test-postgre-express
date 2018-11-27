@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
   payment.associate = function(models) {
     payment.hasMany(models.orders, {
-      foreignKey: 'idpayment',
+      foreignKey: 'id_payment',
       as: 'orders',
     });
   

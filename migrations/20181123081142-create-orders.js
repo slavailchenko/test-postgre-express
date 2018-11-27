@@ -12,15 +12,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      idstatus: {
+      id_status: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      idpayment: {
+      id_payment: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      iddelivery: {
+      id_delivery: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

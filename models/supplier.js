@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   supplier.associate = function(models) {
 
     supplier.hasMany(models.products, {
-      foreignKey: 'supplierid',
+      foreignKey: 'supplier_id',
       as: 'products',
     });
   

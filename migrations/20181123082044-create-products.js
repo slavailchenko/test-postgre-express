@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      subcategoryid: {
+      subcategory_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      brandid: {
+      brand_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -31,19 +31,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DOUBLE
       },
-      availabilityid: {
+      availability_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      warrantyid: {
+      warranty_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      conditionid: {
+      condition_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      supplierid: {
+      supplier_id: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

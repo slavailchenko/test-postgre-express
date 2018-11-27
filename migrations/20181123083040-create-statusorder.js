@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      isfulfilled: {
+      is_fulfilled: {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },

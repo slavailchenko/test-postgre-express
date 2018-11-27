@@ -1,15 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const category = sequelize.define('category', {
-    namecategory: DataTypes.STRING,
-    descriptioncategory: DataTypes.STRING
+    name_category: DataTypes.STRING,
+    description_category: DataTypes.STRING
   }, {});
   
   category.associate = function(models) {
 
     category.hasMany(models.subcategory, {
-      foreignKey: 'idcategory',
-      as: 'subcategories',
+      foreignKey: 'id_category',
+      as: 'sub_categories',
     });
   };
   return category;

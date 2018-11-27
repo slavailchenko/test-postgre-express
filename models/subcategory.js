@@ -1,15 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const subcategory = sequelize.define('subcategory', {
-    idcategory: DataTypes.INTEGER,
-    namesubcategory: DataTypes.STRING,
-    descriptionsubcategory: DataTypes.STRING
+    id_category: DataTypes.INTEGER,
+    name_sub_category: DataTypes.STRING,
+    description_subcategory: DataTypes.STRING
   }, {});
 
   subcategory.associate = function(models) {
 
   	subcategory.belongsTo(models.category, {
-      foreignKey: 'idcategory',
+      foreignKey: 'id_category',
       as: 'categories'
     });
 

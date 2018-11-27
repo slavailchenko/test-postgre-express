@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 
   warranty.associate = function(models) {
     warranty.hasMany(models.products, {
-      foreignKey: 'warrantyid',
+      foreignKey: 'warranty_id',
       as: 'products',
     });
   };

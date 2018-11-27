@@ -8,15 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idclient: {
+      id_client: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      idorder: {
+      id_order: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      idproduct: {
+      id_product: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

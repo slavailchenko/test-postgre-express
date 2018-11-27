@@ -1,9 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const reviews = sequelize.define('reviews', {
-    idclient: DataTypes.INTEGER,
-    idorder: DataTypes.INTEGER,
-    idproduct: DataTypes.INTEGER,
+    id_client: DataTypes.INTEGER,
+    id_order: DataTypes.INTEGER,
+    id_product: DataTypes.INTEGER,
     title: DataTypes.STRING,
     descriprion: DataTypes.STRING
   }, {});
@@ -11,17 +11,17 @@ module.exports = (sequelize, DataTypes) => {
   reviews.associate = function(models) {
 
     reviews.belongsTo(models.clients, {
-      foreignKey: 'idclient',
+      foreignKey: 'id_client',
       as: 'clients'
     });
 
     reviews.belongsTo(models.orders, {
-      foreignKey: 'idorder',
+      foreignKey: 'id_order',
       as: 'orders'
     });
 
     reviews.belongsTo(models.products, {
-      foreignKey: 'idproduct',
+      foreignKey: 'id_product',
       as: 'products'
     });
 
